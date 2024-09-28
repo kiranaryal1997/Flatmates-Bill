@@ -40,8 +40,8 @@ my_bill = Bill(amount=120, period="September, 2024")
 pawan = Flatmate(name="Pawan", days_in_house=20)
 kiran = Flatmate(name="Kiran", days_in_house=25)
 
-print(pawan.pays(bill=my_bill, flatmate2=kiran))
-print(kiran.pays(bill=my_bill, flatmate2=pawan))
+print(f"{pawan.name} pays:", pawan.pays(bill=my_bill, flatmate2=kiran))
+print(f"{kiran.name} pays:", kiran.pays(bill=my_bill, flatmate2=pawan))
 
 
 
