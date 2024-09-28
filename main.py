@@ -22,7 +22,7 @@ class Flatmate:
     def pays(self, bill, flatmate2):
         weight = self.days_in_house/(self.days_in_house+flatmate2.days_in_house)
         to_pay = bill.amount*weight
-        return round(to_pay)
+        return to_pay
 
 
 class PdfReport:
@@ -48,11 +48,11 @@ class PdfReport:
 
         # Insert name and due amount of the first flatmate
         pdf.cell(w=150, h=40, txt=flatmate1.name, border=1)
-        pdf.cell(w=0, h=40, txt=str(flatmate1.pays(bill, flatmate2)), border=1, ln=1)
+        pdf.cell(w=0, h=40, txt=str(round(flatmate1.pays(bill, flatmate2))), border=1, ln=1)
 
         # # Insert name and due amount of the second flatmate
         pdf.cell(w=150, h=40, txt=flatmate2.name, border=1)
-        pdf.cell(w=0, h=40, txt=str(flatmate2.pays(bill, flatmate1)), border=1)
+        pdf.cell(w=0, h=40, txt=str(round(flatmate2.pays(bill, flatmate1))), border=1)
 
         pdf.output(self.filename)
 
