@@ -1,4 +1,5 @@
 import webbrowser
+import os
 
 from fpdf import FPDF
 
@@ -19,7 +20,7 @@ class PdfReport:
         pdf.add_page()
 
         #Add Icon
-        pdf.image(name="home.png", w=60, h=60)
+        pdf.image(name="files/home.png", w=60, h=60)
 
         #Adding the title
         pdf.set_font(family="Times", size=24, style="B")
@@ -39,5 +40,7 @@ class PdfReport:
         pdf.cell(w=100, h=40, txt=flatmate2.name, border=0)
         pdf.cell(w=100, h=40, txt=flatmate2_pay, border=0)
 
+        os.chdir("files") #changing the directory to files from Flatemates_Bill
+        # pdf.output(f"files/{self.filename}")
         pdf.output(self.filename)
         webbrowser.open(self.filename)
