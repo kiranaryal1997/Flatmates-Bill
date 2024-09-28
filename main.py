@@ -48,11 +48,11 @@ class PdfReport:
 
         # Insert name and due amount of the first flatmate
         pdf.cell(w=150, h=40, txt=flatmate1.name, border=1)
-        pdf.cell(w=0, h=40, txt=str(round(flatmate1.pays(bill, flatmate2))), border=1, ln=1)
+        pdf.cell(w=0, h=40, txt=str(round(flatmate1.pays(bill, flatmate2),2)), border=1, ln=1)
 
         # # Insert name and due amount of the second flatmate
         pdf.cell(w=150, h=40, txt=flatmate2.name, border=1)
-        pdf.cell(w=0, h=40, txt=str(round(flatmate2.pays(bill, flatmate1))), border=1)
+        pdf.cell(w=0, h=40, txt=str(round(flatmate2.pays(bill, flatmate1),2)), border=1)
 
         pdf.output(self.filename)
 
