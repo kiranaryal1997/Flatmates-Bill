@@ -1,5 +1,5 @@
 from flat import Bill, Flatmate
-from reports import PdfReport
+from reports import PdfReport, FileSharer
 
 bill_amount = float(input("Hey User, Enter the total bill amount: "))
 bill_period = input("Enter the period of the bill: ")
@@ -17,6 +17,9 @@ print(f"{second_flatemate.name} pays:", second_flatemate.pays(bill=my_bill, flat
 
 pdf_report = PdfReport(filename=f"{my_bill.period}.pdf")
 pdf_report.generate(flatmate1=first_flatemate, flatmate2=second_flatemate, bill=my_bill)
+
+file_sharer = FileSharer(filepath=pdf_report.filename)
+print(file_sharer.share())
 
 
 
